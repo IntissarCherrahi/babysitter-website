@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="translatable" data-key="home">Home</a></li>
+                <li><a href="login.html" class="translatable" data-key="login">Login</a></li>
+                <li><a href="signup.html" class="translatable" data-key="signUp">Sign Up</a></li>
+                <li><a href="contact.html" class="translatable" data-key="contact">Contact Us</a></li>
+                <li><a href="Us.html" class="translatable" data-key="about">About Us</a></li>
+            </ul>
+            <select id="language-select">
+                <option value="en">English</option>
+                <option value="ar">العربية</option>
+            </select>
+        </nav>
+    </header>
+    
+
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form id="signup-form">
+            <div id="step-1">
+                <label for="user-type">I am a:</label>
+                <select id="user-type" name="user-type">
+                    <option value="parent">Parent</option>
+                    <option value="babysitter">Babysitter</option>
+                </select>
+                
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                
+                <button type="button" id="next-step">Next</button>
+            </div>
+            
+            <div id="step-2" style="display: none;">
+                <div class="babysitter-fields">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                    
+                    <label for="experience">Experience (years)</label>
+                    <input type="number" id="experience" name="experience" min="0" required>
+                    
+                    <label for="rate">Rate (per hour)</label>
+                    <input type="text" id="rate" name="rate" required>
+                    
+                    <label for="rating">Rating</label>
+                    <input type="text" id="rating" name="rating" readonly value="Not rated yet">
+                    
+                    <label for="resume">Upload Resume (Optional)</label>
+                    <input type="file" id="resume" name="resume">
+                </div>
+                
+                <button type="button" id="prev-step">Back</button>
+                <button type="submit">Sign Up</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+document.getElementById('user-type').addEventListener('change', function() {
+    let babysitterFields = document.querySelector('.babysitter-fields');
+    if (this.value === 'babysitter') {
+        babysitterFields.style.display = 'block';
+    } else {
+        babysitterFields.style.display = 'none';
+    }
+});
+
+document.getElementById('next-step').addEventListener('click', function() {
+    const userType = document.getElementById('user-type').value;
+
+    if (userType === "babysitter") {
+        document.getElementById('step-1').style.display = 'none';
+        document.getElementById('step-2').style.display = 'block';
+    } else {
+        // For parents, directly submit the form
+        document.getElementById('signup-form').submit();
+    }
+});
+
+
+document.getElementById('prev-step').addEventListener('click', function() {
+    document.getElementById('step-2').style.display = 'none';
+    document.getElementById('step-1').style.display = 'block';
+});
+
+document.getElementById('signup-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    alert('Signup successful!');
+    window.location.href = 'find-babysitter.html';
+});
+
+    </script>
+</body>
+</html>

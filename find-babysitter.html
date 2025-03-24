@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Babysitter</title>
+    <link rel="stylesheet" href="find-babysitter.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="translatable" data-key="home">Home</a></li>
+                <li><a href="login.html" class="translatable" data-key="login">Login</a></li>
+                <li><a href="signup.html" class="translatable" data-key="signUp">Sign Up</a></li>
+                <li><a href="contact.html" class="translatable" data-key="contact">Contact Us</a></li>
+                <li><a href="Us.html" class="translatable" data-key="about">About Us</a></li>
+            </ul>
+            <select id="language-select">
+                <option value="en">English</option>
+                <option value="ar">العربية</option>
+            </select>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <h2>Find a Babysitter</h2>
+        <input type="text" id="searchBox" placeholder="Search by name...">
+        <div id="babysitter-list"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const babysitters = JSON.parse(localStorage.getItem("babysitters")) || [];
+            const listContainer = document.getElementById("babysitter-list");
+            const searchBox = document.getElementById("searchBox");
+
+            function displayBabysitters(filter = "") {
+                listContainer.innerHTML = "";
+                const filteredBabysitters = babysitters.filter(babysitter => 
+                    babysitter.name.toLowerCase().includes(filter.toLowerCase())
+                );
+
+                if (filteredBabysitters.length === 0) {
+                    listContainer.innerHTML = "<p>No babysitters found.</p>";
+                    return;
+                }
+                
+                filteredBabysitters.forEach(babysitter => {
+                    const div = document.createElement("div");
+                    div.classList.add("babysitter-card");
+                    div.innerHTML = `
+                        <h3>${babysitter.name}</h3>
+                        <p><strong>Email:</strong> ${babysitter.email}</p>
+                        <p><strong>Phone:</strong> ${babysitter.phone}</p>
+                        <p><strong>Experience:</strong> ${babysitter.experience} years</p>
+                        <p><strong>Rate:</strong> ${babysitter.rate} per hour</p>
+                    `;
+                    listContainer.appendChild(div);
+                });
+            }
+            
+            searchBox.addEventListener("input", function() {
+                displayBabysitters(this.value);
+            });
+
+            displayBabysitters();
+        });
+    </script>
+</body>
+</html>
