@@ -4,7 +4,6 @@ body {
     text-align: center;
 }
 
-/* شريط التنقل */
 header {
     background-color: #d9a89c;
     padding: 15px 0;
@@ -40,7 +39,6 @@ nav ul li a {
     font-weight: bold;
 }
 
-/* قسم الترحيب */
 .hero {
     background: linear-gradient(to right, #ff69b4, #ff1493);
     color: white;
@@ -67,7 +65,6 @@ nav ul li a {
     border-radius: 5px;
 }
 
-/* تنسيق الفوتر ليبقى دائمًا في الأسفل */
 footer {
     background-color: black;
     color: white;
@@ -90,7 +87,6 @@ body {
 
 .hero {
     flex: 1;
-    /* يجعل القسم يأخذ كل المساحة المتاحة */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -105,3 +101,43 @@ footer {
     width: 100%;
     position: relative;
 }
+/* تحسين عرض الصفحة على الهواتف */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .hero {
+        padding: 50px 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 28px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+
+
+
+
+
