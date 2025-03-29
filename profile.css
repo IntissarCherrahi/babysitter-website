@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.profile-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 350px;
+    width: 100%;
+}
+
+img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #ff4081;
+}
+
+h2 {
+    font-size: 22px;
+    color: #333;
+    margin: 10px 0;
+}
+
+p {
+    font-size: 16px;
+    color: #666;
+    margin: 5px 0;
+}
+
+#book-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #ff4081;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: 0.3s ease-in-out;
+}
+
+#book-btn:hover {
+    background: #e03572;
+    transform: scale(1.05);
+}
+
+/* Rating Section */
+.rating-container {
+    margin-top: 20px;
+}
+
+.rating-container h3 {
+    font-size: 18px;
+    color: #333;
+}
+
+#rating-select {
+    font-size: 16px;
+    padding: 5px;
+    margin: 10px 0;
+}
+
+#submit-rating {
+    background: #28a745;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+#submit-rating:hover {
+    background: #218838;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Babysitter Profile</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<script src="profile.js"></script>
+<body>
+    <div class="profile-container">
+        <img id="profile-img" src="default.jpg" alt="Profile Picture">
+        <h2 id="profile-name">Babysitter Name</h2>
+        <p id="profile-experience">Experience: 5 years</p>
+        <p id="profile-rating">Rating: <span id="display-rating">4.5</span></p>
+        
+        <a id="book-btn" href="#">Book Now</a>
+
+        <!-- Rating System -->
+        <div class="rating-container">
+            <h3>Rate this Babysitter</h3>
+            <select id="rating-select">
+                <option value="5">⭐⭐⭐⭐⭐</option>
+                <option value="4">⭐⭐⭐⭐</option>
+                <option value="3">⭐⭐⭐</option>
+                <option value="2">⭐⭐</option>
+                <option value="1">⭐</option>
+            </select>
+            <button id="submit-rating">Submit Rating</button>
+        </div>
+    </div>
+
+    <script src="profile.js"></script>
+</body>
+</html>
